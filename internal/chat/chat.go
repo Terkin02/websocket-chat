@@ -7,13 +7,12 @@ import (
 	"github.com/gorilla/websocket"
 )
 
-// ClearScreen очищает консоль (ANSI-последовательность)
+
 func ClearScreen() {
 	fmt.Print("\033[H\033[2J")
 }
 
-// RunChat запускает цикл приема/отправки сообщений
-// inputChan — канал для ввода пользователя, done — сигнал конца
+
 func RunChat(conn *websocket.Conn, inputChan <-chan string, done chan interface{}) {
 	// Горутина чтения входящих сообщений от сервера
 	go func() {
